@@ -1,0 +1,23 @@
+.btn-favorite{
+    border: none;
+    background: none;
+    color: $primary;
+}
+
+.btn-read{
+    border: none;
+    background-color: $green-light; 
+    padding: 0.1rem 0.4rem;
+    border-radius: 10px;
+
+    &:hover{
+        background-color: $secondary;
+    }
+}
+
+.btn-read-text{
+    color: $dark-violet;
+    font-size: 0.8rem;
+
+    
+}

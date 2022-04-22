@@ -1,0 +1,29 @@
+*{
+    font-family: 'Patrick Hand', cursive;
+    font-size: 1.2rem;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+ 
+}
+
+
+
+h1{
+    font-family: 'Fredoka One', cursive;
+    color: $text-light;
+
+    @media (max-width: 768px) {
+        font-size: 1.5rem;
+        
+      }
+    
+}
+
+body{
+    height: 100vh;
+    width: 100vw;
+   
+}
+

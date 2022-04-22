@@ -1,0 +1,204 @@
+
+.sidebar__container{
+    background-color: $primary;
+    height: 100vh;
+
+    width: 300px;
+
+   
+
+    @media (max-width: 768px) {
+        padding-right: 5px !important;
+        padding-left: 5px !important;
+        display: none;
+        }
+
+}
+
+
+.sidebar__user-image{
+    height: 200px;
+    width: 200px;
+
+    
+    @media (max-width: 768px) {
+      height: 100px;
+      width: 100px;
+        
+    }
+
+    @media (max-width: 425px) {
+        height: 70px;
+        width: 70px;
+        
+      }
+    
+}
+
+
+.sidebar__menu-container{
+    padding: 0.5rem;
+    max-height: 30rem;
+
+    @media (max-width: 1440px) {
+        height: 20rem;
+        
+      }
+
+    @media (max-width: 768px) {
+        padding-top: 0px !important;
+        }
+
+    
+}  
+        
+.sidebar__menu-item{
+    background-color: $green-light;
+    border-radius: 10px;
+    text-align: left;
+    
+
+    margin: 15px 0;
+    padding: 0.7rem 1rem 0.7rem 1rem;
+
+    transition: background-color 0.4s ease-in-out;
+    
+    &:hover{
+        background-color: $secondary;
+    }
+
+
+    @media (max-width: 1024px) {
+        padding: 0.7rem 0.5rem 0.7rem 0.5rem;
+        
+      }
+}
+
+
+
+
+.sidebar__menu-link{
+    cursor: pointer;
+    color: $dark-violet;
+    text-decoration: none;   
+
+    &:hover{
+        color: $dark-violet;
+    }
+}
+
+.sidebar__menu-active{
+   
+    color: $primary;
+}
+
+.sidebar__menu-button-open{
+ 
+    
+    border-radius: 10px;
+    
+}
+
+.sidebar__menu-button-open.sidebar__subitem-open{
+ 
+    border-radius: 10px;
+    
+    
+    
+}
+
+  
+.sidebar__subitem{
+    
+    overflow: scroll;
+    height: 10rem;
+   
+    margin-top: 1rem ;
+   
+    border-radius: 10px;
+    background: #ffffff;
+    box-shadow: inset 5px 5px 10px #d9d9d9,
+            inset -5px -5px 10px #ffffff;   
+
+
+   @media (max-width: 1440px) {
+    height: 5rem;
+    
+  }    
+  @media (max-width: 1024px) {
+    height: 3rem;
+    
+  } 
+
+}
+
+
+.sidebar__subitem.sidebar__subitem-open{
+    display: none;
+    
+}
+
+.sidebar__menu-text{
+
+    @media (max-width: 1440px) {
+        font-size: 1.2rem;
+       
+      } 
+
+    @media (max-width: 1024px) {
+        font-size: 1.15rem;
+        
+      }
+
+    
+    
+}
+
+
+.sidebar__menu-top{
+    background-color: $primary;
+    border-radius: 10px;
+    color: $text-light;
+    cursor: pointer;
+    padding: 0.5rem 0.5rem;
+   
+    top: 20px;
+    position: fixed;
+    left:25px;
+    z-index: 0;
+
+    display: none;
+
+    @media (max-width: 768px) {
+        display: block;
+        
+      }
+
+}
+
+.sidebar__menu-close{
+
+    color: $text-light;
+    cursor: pointer;
+
+    top: 7px;
+    position: fixed;
+    left:270px;
+    z-index: 2;
+
+    @media (min-width: 768px) {
+        display: none;
+        
+      }
+}
+
+.sidebar__container-open{
+    position: fixed;
+    display: block;
+    z-index: 1;
+}
+
+
+
+
+

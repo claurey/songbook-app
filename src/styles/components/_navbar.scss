@@ -1,0 +1,138 @@
+
+.navbar__container{
+    
+    background-color: #edebeb8c;
+
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.5rem;
+
+    @media (max-width: 500px) {
+        gap: 0rem;
+        
+      }
+}
+
+.navbar__container-form{
+
+    margin:1rem;
+    input{
+
+        margin-right: 0.5rem;
+
+        padding: 0 1rem;
+        border: 0.5px solid grey;
+        border-radius: 10px;
+        color: $dark-grey;
+        
+        &:focus{
+            outline: 1px solid darken($color:$text-light, $amount:20);
+        }
+        
+
+        @media (max-width: 500px) {
+            width: 90px;
+
+            font-size: 1rem;
+            
+          }
+          
+    }
+
+    
+}
+
+
+
+.navbar__search-button{
+    padding: 0.3rem 0.5rem;
+
+    background-color: $green-light;
+    border: none;
+    border-radius: 10px;
+    color: $dark-violet;
+    transition: background-color 0.4s ease-in-out;
+    
+    &:hover{
+        background-color: $secondary;
+        color: $dark-violet;
+    }
+}
+
+
+.navbar__buttons{
+
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+    margin-right: 2rem;
+
+    @media (max-width: 768px) {
+        margin-right: 1rem;
+        
+      }
+
+}
+
+.navbar__buttons-item{
+    border: none;
+    border-radius: 30px;
+
+    padding: 0.5rem 1rem;
+
+    transition: background-color 0.4s ease-in-out;
+
+    &:hover{
+        background-color: $secondary;
+        color: $text-light;
+    }
+
+    @media (max-width: 1440px) {
+        padding: 0.5rem 0.5rem;
+        
+      } 
+}
+
+.nav-item-new{
+    background-color: $dark-violet;
+    color: $text-light;
+    @media (max-width: 1024px) {
+        display: none;
+        
+      }
+    
+}
+
+
+.nav-item-logout{
+    
+    background-color: $text-light;
+    color: $dark-violet;
+   
+    span{
+        @media (max-width: 1024px) {
+            display: none;
+            
+          }
+    }
+    
+}
+
+
+.fab{
+    border-radius: 100%;
+    padding-bottom: 0.5rem;
+    font-size: 3rem;
+    width: 80px;
+    height: 80px;
+    line-height: 0;
+    border: none;
+    color: $text-light;
+    background-color: $dark-violet;
+
+    bottom: 25px;
+    position: fixed;
+    right:25px;
+}

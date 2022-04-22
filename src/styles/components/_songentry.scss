@@ -1,0 +1,41 @@
+.song__entry-container{
+
+    padding: 3rem 4rem 0 4rem;
+    text-align: center;
+    overflow: scroll;
+    height: 80%;
+
+    span{
+    text-align: right;
+    width: 100%;
+    display: block;
+    }
+
+    h3{
+        font-size: 1.4rem;
+        color: $light-grey;
+    }
+}
+
+.song__entry-body{
+    padding: 0 2rem 2rem 2rem;
+
+
+}
+
+.song__entry-date{
+    font-size: 0.9rem;
+}
+
+.song__entry-return{
+    background-color: $green-light;
+    padding: 5px;
+    color: $dark-violet;
+    cursor: pointer;
+    position: fixed;
+
+    &:hover{
+        color: $secondary;
+    }
+}
+

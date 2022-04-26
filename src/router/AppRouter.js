@@ -7,6 +7,8 @@ import AuthRouter from './AuthRouter';
 import DashboardRouter from './DashboardRouter';
 import PrivateRouter from './PrivateRouter';
 import PublicRouter from './PublicRouter';
+import Stack from '@mui/material/Stack';
+import CircularProgress from '@mui/material/CircularProgress';
 
 const AppRouter = () => {
 
@@ -18,11 +20,14 @@ const AppRouter = () => {
 
   useEffect(() => {
     dispatch(startChecking());
-  }, [dispatch]);
+  }, [dispatch,userLogged]);
  
   
   if(checking){
-    return <h5>Waiting...</h5>;
+    return <Stack className="d-flex justify-content-center align-items-center p-5 m-5" sx={{ color: 'grey.500' }} spacing={2} direction="row">
+      <CircularProgress color="secondary" />
+      
+    </Stack>
   }
 
 

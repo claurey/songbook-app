@@ -71,7 +71,6 @@ export const startChecking=() => {
       //Save credentials and token in local storage
       localStorage.setItem('songbook-token',data.token);
       localStorage.setItem('token-init-date',new Date().getTime());
-      dispatch(checkingFinish()); 
       dispatch(login({
         uid:data.uid,
         name:data.name}));
@@ -83,3 +82,21 @@ const checkingFinish=() => {
         type:types.authCheckingFinish
     }
   }
+
+export const startLogout=() => {
+  return (dispatch) => {
+    localStorage.removeItem("token-init-date");
+    localStorage.removeItem("songbook-token");
+    //Pending clear songs
+    dispatch(Logout());
+  }
+}
+
+const Logout=() => {
+  return {
+    type:types.authLogout
+  }
+}  
+
+
+

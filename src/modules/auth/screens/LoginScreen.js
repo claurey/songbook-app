@@ -25,7 +25,7 @@ const LoginScreen = () => {
         <main className="form-signin">
               <form onSubmit={handleSubmit}>
                 <img  src="../../../../assets/undraw_compose_music_ovo2.svg" alt="" width="200" height="200"/>
-                <h1 className="h3 mb-3 fw-normal">Song Book</h1>
+                <h1 className=" h3 mb-3 fw-normal">Song Book</h1>
 
                 <div className="form-floating">
                   <input type="email" className="form-control" id="floatingInput" placeholder="name@example.com" name="email" value={formValues.email} onChange={handleFormChange}/>

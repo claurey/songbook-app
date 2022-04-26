@@ -4,8 +4,19 @@ import SvgIcon from '@mui/material/SvgIcon';
 import SearchIcon from '@mui/icons-material/Search';
 import ExitToAppRoundedIcon from '@mui/icons-material/ExitToAppRounded';
 import AddCircleRoundedIcon from '@mui/icons-material/AddCircleRounded';
+import { useDispatch } from 'react-redux';
+import { startLogout } from '../../actions/auth';
+import { clearSongs } from '../../actions/songs';
 
 const Navbar = () => {
+
+
+  const dispatch= useDispatch();
+  const handleLogout=() => {
+    dispatch(startLogout());
+    dispatch(clearSongs());
+  }
+
   return (
     <nav >
                 
@@ -20,7 +31,7 @@ const Navbar = () => {
                 <button className="nav-item-new navbar__buttons-item">
                  <SvgIcon component={AddCircleRoundedIcon}/> New Song
                 </button>
-                <button className="navbar__buttons-item  nav-item-logout">
+                <button onClick={handleLogout} className="navbar__buttons-item  nav-item-logout">
                   <span>Logout</span>  <SvgIcon component={ExitToAppRoundedIcon}/>
                 </button>
               

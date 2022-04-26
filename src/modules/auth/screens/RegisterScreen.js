@@ -18,7 +18,7 @@ const RegisterScreen = () => {
         <main className="form-signin">
               <form onSubmit={handleSubmitRegister}>
                 <img  src="../../../../assets/undraw_reading_book_re_kqpk.svg" alt="" width="150" height="150"/>
-                <h1 className="h3 mb-3 fw-normal">Create Account</h1>
+                <h1 className="h3  mb-3 fw-normal">Create Account</h1>
 
                 <div className="form-floating">
                   <input  type="text" className="form-control" id="floatingInputName" placeholder="name" name="name" value={formValues.name} onChange={handleChangeForm}/>

@@ -11,7 +11,7 @@ const SongCards = ({songs}) => {
     <>
 
         <div className="row row-cols-1 row-cols-md-2 g-4 px-5">
-            {songs.map((song)=>(<SongCard key={song.id} song={song}/>))}
+            {songs.map((song)=>(<SongCard key={song._id} song={song}/>))}
         </div>
     </>
    

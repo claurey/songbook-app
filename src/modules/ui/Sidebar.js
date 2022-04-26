@@ -15,6 +15,7 @@ import SingerButtonSidebar from './SingerButtonSidebar';
 
 
 const SideBar = () => {
+    
 
         const {name}=useSelector((state) => {
           return state.auth;
@@ -60,7 +61,7 @@ const SideBar = () => {
                         }
                         } >
                         <Badge badgeContent={songsList.length} color="success"><SvgIcon component={LibraryMusicIcon} /></Badge>
-                        <span className='px-2 sidebar__menu-text '>All Songs</span> 
+                        <span className='px-3 sidebar__menu-text '>Songs</span> 
                     </NavLink>
                 </div>
             
@@ -71,14 +72,14 @@ const SideBar = () => {
                         }
                         }>
                         <SvgIcon component={FavoriteIcon} />
-                        <span className='px-2 sidebar__menu-text'>Favorites</span> 
+                        <span className='px-3 sidebar__menu-text'>Favorites</span> 
                     </NavLink>
                 </div>
 
                 <div className={`sidebar__menu-item sidebar__menu-button-open ${openList&&"sidebar__subitem-open"}`} >
                        <div className='sidebar__menu-link' onClick={handleClick}>
                         <SvgIcon component={LyricsIcon} />
-                        <span className='px-2 sidebar__menu-text'>Your Singers</span> 
+                        <span className='px-3 sidebar__menu-text'>Singers</span> 
                         {openList?<SvgIcon component={ExpandMoreIcon}  />:<SvgIcon component={ExpandLessIcon} />} 
                        </div>
                        <div className={`sidebar__subitem ${openList&&"sidebar__subitem-open"}`}>

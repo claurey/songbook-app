@@ -1,18 +1,11 @@
-import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import React from 'react';
+import { useSelector } from 'react-redux';
 
 import SongCards from '../../song/components/SongCards';
-import { startGettingSongs } from '../../../actions/songs';
 
 
 const AllSongsScreen = () => {
 
-   const dispatch=useDispatch();
-   //Get songs
-   useEffect(() => {
-    dispatch(startGettingSongs());
-    
-   }, [dispatch]);
    
    const {songsList:songs}=useSelector((state) => {
     return state.songs;

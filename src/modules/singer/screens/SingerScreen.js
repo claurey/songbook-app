@@ -1,24 +1,23 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
+import { useParams } from 'react-router-dom';
 
 import SongCards from '../../song/components/SongCards';
 
+const SingerScreen = () => {
 
-const Favorites = () => {
-  
+  const {singerId}=useParams();
   //Get Favorite Songs
   const{songsList}=useSelector((state) => {
     return state.songs;
   });
-  const favoriteSongs=songsList.filter((song) => (song.favorite===true));
-
+  const singerSongs=songsList.filter((song) => (song.singer===singerId));
 
   return (
     <div className='song__entry-container animate__animated animate__fadeInRight'>
-    <SongCards songs={favoriteSongs}/>
-
-    </div>
+      <SongCards songs={singerSongs}/> 
+    </div> 
   )
 }
 
-export default Favorites
+export default SingerScreen

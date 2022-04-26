@@ -1,18 +1,15 @@
 import React from 'react';
-
-import Chip from '@mui/material/Chip';
-import Stack from '@mui/material/Stack';
+import { Link} from 'react-router-dom';
 
 const SingerButton = ({singerName}) => {
 
-    const handleClick=() => {
-        console.log('Hola');
-      }
-
+  
+  
   return (
-    <Stack direction="row" spacing={1} className="p-2">
-        <Chip label={singerName} onClick={handleClick} />
-    </Stack>
+    <div className="p-2">
+        <Link to={`singer/${singerName}`} className='sidebar__list' >{singerName}</Link>
+      
+    </div>
   )
 }
 

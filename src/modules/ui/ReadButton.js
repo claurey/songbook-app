@@ -1,8 +1,10 @@
-import React from 'react'
+import React from 'react';
+import { Link } from 'react-router-dom';
 
-const ReadButton = () => {
+const ReadButton = ({idSong}) => {
   return (
-    <button className='btn-read'> <span className="btn-read-text">READ</span></button>
+    <Link to={`/song/${idSong} `} className='btn-read'> <span className="btn-read-text">READ</span></Link>
+  
   )
 }
 

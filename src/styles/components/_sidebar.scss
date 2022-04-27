@@ -95,10 +95,15 @@
     text-decoration: none; 
     padding: 0.2rem 0.5rem;
     border-radius: 30px;
+    transition: background-color 0.4s ease-in-out;
 
     &:hover{
         color: grey;
         background-color: rgb(203, 202, 202);
+    }
+    &:focus{
+        color: grey;
+        background-color: $primary;
     }
 }
 

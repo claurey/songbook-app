@@ -21,7 +21,7 @@ const SongCard = ({song}) => {
             </div>
             <div className="card-footer songcard__footer d-flex justify-content-between">
                 <small className="card-text">{date}</small>
-                <ReadButton/>
+                <ReadButton idSong={_id}/>
             </div>
         </div>
 

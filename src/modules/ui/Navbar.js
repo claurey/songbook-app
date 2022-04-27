@@ -1,12 +1,12 @@
 import React from 'react';
 
 import SvgIcon from '@mui/material/SvgIcon';
-import SearchIcon from '@mui/icons-material/Search';
 import ExitToAppRoundedIcon from '@mui/icons-material/ExitToAppRounded';
 import AddCircleRoundedIcon from '@mui/icons-material/AddCircleRounded';
 import { useDispatch } from 'react-redux';
 import { startLogout } from '../../actions/auth';
 import { clearSongs } from '../../actions/songs';
+import InputSearch from './InputSearch';
 
 const Navbar = () => {
 
@@ -21,12 +21,7 @@ const Navbar = () => {
     <nav >
                 
             <div className='navbar__container'>
-              <form className="d-flex navbar__container-form">
-                      <input  type="text" placeholder="Search"/>
-                      <button className="navbar__search-button" type="submit">
-                        <SvgIcon component={SearchIcon}/>
-                      </button>
-              </form>
+              <InputSearch/>
               <div className='navbar__buttons'>
                 <button className="nav-item-new navbar__buttons-item">
                  <SvgIcon component={AddCircleRoundedIcon}/> New Song

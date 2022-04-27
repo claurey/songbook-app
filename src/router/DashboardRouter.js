@@ -9,6 +9,7 @@ import SideBar from '../modules/ui/Sidebar'
 import Navbar from '../modules/ui/Navbar'
 import AddNewFab from '../modules/ui/AddNewFab'
 import SingerScreen from '../modules/singer/screens/SingerScreen'
+import ModalSong from '../modules/ui/modal/ModalSong'
 
 const DashboardRouter = () => {
   return (
@@ -25,6 +26,7 @@ const DashboardRouter = () => {
           
           <div className="songbook__container">
             <Navbar/>
+            <ModalSong/>
             <Routes>
               <Route path="all" element={<AllSongsScreen/>}/>
               <Route path="favorites" element={<FavoriteScreen/>}/>

@@ -1,0 +1,28 @@
+.song__modal-title{
+    color: $dark-violet;
+}
+
+.modal__button-save{
+    background-color: #595858;
+    color: white;
+}
+
+.modal__icon{
+    color: $dark-violet;
+    cursor: pointer;
+  
+}
+
+.modal__image-preview{
+    width: 42px;
+    height: 42px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    float: right;
+    margin-left: 1rem;
+    border: 2px solid $dark-violet;
+    border-radius: 5px;
+}
+

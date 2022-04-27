@@ -9,5 +9,9 @@ export const types = {
   songsSetFavorite: '[songs] Set Favorite',
   songsClearSongs: '[songs] Clear Songs',
 
+  uiOpenModal:'[ui] Open Modal',
+  uiCloseModal:'[ui] Close Modal',
+  uiUploadPreviewImage:'[ui] Upload Preview Image'
+
 }
 

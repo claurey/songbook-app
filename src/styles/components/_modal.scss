@@ -8,7 +8,7 @@
 }
 
 .modal__icon{
-    color: $dark-violet;
+    color: #8882fb;
     cursor: pointer;
   
 }
@@ -22,7 +22,10 @@
     justify-content: center;
     float: right;
     margin-left: 1rem;
-    border: 2px solid $dark-violet;
+    // border: 2px solid $dark-violet;
     border-radius: 5px;
 }
 
+.my-swal {
+    z-index: 2000 !important;
+  }

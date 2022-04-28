@@ -16,7 +16,7 @@ const AddNewFab = () => {
     <button className='fab' onClick={handleClickAddSong}>
     +
     </button>
-  )
+  ) 
 }
 
 export default AddNewFab

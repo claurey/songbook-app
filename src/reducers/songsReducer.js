@@ -2,8 +2,6 @@ import { types } from "../types/types";
 
 const initialState={
     songsList:[],
-    songActivated:{},
-    favoriteSongs:[]
 }
 
 const songsReducer = (state=initialState,action) => {
@@ -12,6 +10,11 @@ const songsReducer = (state=initialState,action) => {
           return {
               ...state,
               songsList:action.payload
+          }
+      case types.songsCreateSong:
+          return {
+        ...state,
+        songsList:[...state.songsList,action.payload]
           }
       case types.songsSetFavorite:
           return {...state, songsList:state.songsList.map(e=> (

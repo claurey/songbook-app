@@ -1,13 +1,15 @@
-import React, { useRef } from 'react';
+import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
 import Tooltip from '@mui/material/Tooltip';
-import { closeModal, uploadPreviewImage } from '../../../actions/ui';
+import { closeModal } from '../../../actions/ui';
 import SvgIcon from '@mui/material/SvgIcon';
 import AddPhotoAlternateIcon from '@mui/icons-material/AddPhotoAlternate';
 import useForm from '../../../hooks/useForm';
+import UploadPreviewImage from './UploadPreviewImage';
+import { startCreatingSong } from '../../../actions/songs';
 
 
 const style = {
@@ -25,8 +27,8 @@ const style = {
 
 const ModalSong = () => {
     const dispatch=useDispatch();
-    const [formValues, handleChangeForm]=useForm({title:'',singer:'',lyrics:''});
-    const imageRef = useRef();
+
+    const [formValues, handleChangeForm,reset]=useForm({title:'',singer:'',lyrics:''});
 
     //Open and Close Modal
     const {modalOpen}=useSelector((state) => {return state.ui;});
@@ -36,28 +38,10 @@ const ModalSong = () => {
 
     //Save values form 
     const handleSubmitSong=(e) => {
-      console.log(formValues);
-    }
-
-    //Handle Picture
-    const handleUploadImage=(e) => {
-      //Show preview and save state only in Redux
-      const file=e.target.files[0];
-      //Save state 
-      dispatch(uploadPreviewImage(file));
       
-      //Preview image
-      let reader=new FileReader();
-      reader.readAsDataURL(file);
-      reader.onload=() => {
-        imageRef.current.src=reader.result;
-      }
-
-
+      dispatch(startCreatingSong(formValues, reset));
+      
     }
-
-    
-    
 
   return (
     <div>
@@ -89,7 +73,7 @@ const ModalSong = () => {
                     </div>
                     <div className="form-group">
                         <label htmlFor="message-text" className="col-form-label">Lyrics:</label>
-                        <textarea className="form-control" id="message-text" name="lyrics" value={formValues.lyrics} onChange={handleChangeForm}></textarea>
+                        <textarea rows="6"  className="form-control" id="message-text" name="lyrics" value={formValues.lyrics} onChange={handleChangeForm}></textarea>
                     </div>
                     </form>
                 </div>
@@ -100,18 +84,7 @@ const ModalSong = () => {
                         <SvgIcon className="modal__icon" component={AddPhotoAlternateIcon} fontSize='large'/> 
                       </Tooltip>
                     </label>
-                    <input type="file"
-                          id="avatar" 
-                          name="avatar"
-                          ref={imageRef}
-                          accept="image/png, image/jpeg" style={{display:'none'}} 
-                          onChange={handleUploadImage} />
-                    <div className='modal__image-preview'>
-                        <img 
-                        src='' 
-                        ref={imageRef}
-                        width="60px" alt="" />
-                    </div>
+                    <UploadPreviewImage/>
                     
                   </div>
                   <button type="submit" className="navbar__buttons-item modal__button-save px-3"  onClick={handleSubmitSong}>Save song</button> 

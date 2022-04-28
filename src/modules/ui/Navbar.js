@@ -7,14 +7,20 @@ import { useDispatch } from 'react-redux';
 import { startLogout } from '../../actions/auth';
 import { clearSongs } from '../../actions/songs';
 import InputSearch from './InputSearch';
+import { openModal } from '../../actions/ui';
 
 const Navbar = () => {
 
 
   const dispatch= useDispatch();
+
   const handleLogout=() => {
     dispatch(startLogout());
     dispatch(clearSongs());
+  }
+  const handleClickAddSong=() => {
+    dispatch(openModal());
+
   }
 
   return (
@@ -23,7 +29,7 @@ const Navbar = () => {
             <div className='navbar__container'>
               <InputSearch/>
               <div className='navbar__buttons'>
-                <button className="nav-item-new navbar__buttons-item">
+                <button className="nav-item-new navbar__buttons-item" onClick={handleClickAddSong}>
                  <SvgIcon component={AddCircleRoundedIcon}/> New Song
                 </button>
                 <button onClick={handleLogout} className="navbar__buttons-item  nav-item-logout">

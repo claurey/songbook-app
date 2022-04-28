@@ -6,12 +6,14 @@ export const types = {
   authLogout:'[auth] Logout',
 
   songsGetSongs:'[songs] Get Songs',
+  songsCreateSong: '[songs] Create Song',
   songsSetFavorite: '[songs] Set Favorite',
   songsClearSongs: '[songs] Clear Songs',
 
+
   uiOpenModal:'[ui] Open Modal',
   uiCloseModal:'[ui] Close Modal',
-  uiUploadPreviewImage:'[ui] Upload Preview Image'
+  uiSetPreviewImage:'[ui] Set Preview Image'
 
 }
 

@@ -11,3 +11,11 @@
 .songcard__footer{
     background-color: #f4f0f0;
 }
+
+.songcard__title{
+  color:black;
+  text-decoration: none;
+  &:hover{
+    color: $dark-violet;
+  }
+}

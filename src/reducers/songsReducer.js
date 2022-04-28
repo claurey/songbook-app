@@ -16,6 +16,13 @@ const songsReducer = (state=initialState,action) => {
         ...state,
         songsList:[...state.songsList,action.payload]
           }
+      case types.songsDeleteSong:
+          return {
+        ...state,
+        songsList:state.songsList.filter(e=> (
+            (e._id!==action.payload))
+          ) 
+}
       case types.songsSetFavorite:
           return {...state, songsList:state.songsList.map(e=> (
             (e._id===action.payload.id)?{...e, favorite:action.payload.favorite}:e)

@@ -7,6 +7,7 @@ export const types = {
 
   songsGetSongs:'[songs] Get Songs',
   songsCreateSong: '[songs] Create Song',
+  songsDeleteSong: '[songs] Delete Song',
   songsSetFavorite: '[songs] Set Favorite',
   songsClearSongs: '[songs] Clear Songs',
 

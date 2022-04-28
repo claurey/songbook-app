@@ -86,6 +86,32 @@ const addNewSong=(song) => {
   }
 }
 
+export const startDeletingSong =(idSong) => {
+  return async(dispatch) => {
+    const response=await fetchWithToken(`songs/${idSong}`,"DELETE",{});
+    const data = await response.json();
+
+    if(!data.ok){
+      return Swal.fire({
+        title:'Error',
+        text:"It couldn't delete the song. Please,try again!",
+        icon:'error',
+        customClass: {
+          container: 'my-swal'
+        }});
+    }
+    dispatch(deleteSong(idSong));
+
+  }
+}
+
+
+const deleteSong=(idSong) => {
+  return{
+    type:types.songsDeleteSong,
+    payload:idSong
+  }
+}
 
 export const clearSongs=() => {
   return{

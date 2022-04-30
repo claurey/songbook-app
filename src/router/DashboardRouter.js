@@ -10,8 +10,13 @@ import Navbar from '../modules/ui/Navbar'
 import AddNewFab from '../modules/ui/AddNewFab'
 import SingerScreen from '../modules/singer/screens/SingerScreen'
 import ModalSong from '../modules/ui/modal/ModalSong'
+import { useDispatch } from 'react-redux'
+import { startGettingSongs } from '../actions/songs'
 
 const DashboardRouter = () => {
+
+
+
   return (
 
     <>

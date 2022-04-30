@@ -17,8 +17,14 @@ export const closeModal=() => {
 
 export const setPreviewImage=(fileImage) => {
   return{
-    type:types.uiSetPreviewImage,
+    type:types.uiSetPreviewImage, 
     payload:fileImage
+  }
+}
+
+export const clearPreviewImage=() => {
+  return{
+    type:types.uiClearPreviewImage
   }
 }
 

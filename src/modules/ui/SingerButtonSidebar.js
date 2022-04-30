@@ -10,7 +10,7 @@ const SingerButtonSidebar = () => {
   
   useEffect(() => {
     dispatch(startGettingSongs());
-  }, [dispatch])
+  }, [dispatch]) 
 
   //Get songs
   const {songsList}=useSelector((state) => {

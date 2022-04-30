@@ -1,15 +1,16 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import Swal from 'sweetalert2';
 
 import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
 import Tooltip from '@mui/material/Tooltip';
-import { closeModal } from '../../../actions/ui';
+import {  closeModal } from '../../../actions/ui';
 import SvgIcon from '@mui/material/SvgIcon';
 import AddPhotoAlternateIcon from '@mui/icons-material/AddPhotoAlternate';
 import useForm from '../../../hooks/useForm';
 import UploadPreviewImage from './UploadPreviewImage';
-import { startCreatingSong } from '../../../actions/songs';
+import { clearActiveSong,  startCreatingSong, startUpdatingSong } from '../../../actions/songs';
 
 
 const style = {
@@ -25,23 +26,69 @@ const style = {
   };
 
 
-const ModalSong = () => {
-    const dispatch=useDispatch();
 
-    const [formValues, handleChangeForm,reset]=useForm({title:'',singer:'',lyrics:''});
+const ModalSong = () => {
+
+    
+    const dispatch=useDispatch();
+    const{songActive}=useSelector((state) => {
+      return state.songs
+    });
+    
+     
+    
+    const [formValues, handleChangeForm,reset, resetActiveSongForm]=useForm({
+      title:'',
+      singer:'',
+      lyrics:'',
+
+  });
+    
+    useEffect(() => {
+        resetActiveSongForm({title:songActive.title,singer:songActive.singer,lyrics:songActive.lyrics});
+    }, [songActive])
+    
+
 
     //Open and Close Modal
     const {modalOpen}=useSelector((state) => {return state.ui;});
     const handleCloseModal=() => {
       dispatch(closeModal());
-    }
+      dispatch(clearActiveSong());
+    } 
 
     //Save values form 
     const handleSubmitSong=(e) => {
-      
+      Swal.fire({
+        title: 'Uploading',
+        text:'Please wait...',
+        allowOutsideClick: false,
+        showConfirmButton:false,
+        customClass: {
+          container: 'my-swal'
+        },
+        willOpen:() => {
+          Swal.showLoading();
+        }
+        
+      });
+
+      if(songActive.title!==""){
+        dispatch(startUpdatingSong(songActive, formValues, reset));
+        Swal.close(); 
+      }else{
       dispatch(startCreatingSong(formValues, reset));
-      
+      Swal.close(); 
+      }
+       
     }
+
+
+    
+    
+
+
+
 
   return (
     <div>
@@ -58,7 +105,7 @@ const ModalSong = () => {
             <div  role="document" >
                 <div className="modal-content"> 
                 <div className="modal-header">
-                    <h4 className="modal-title  song__modal-title" id="exampleModalLabel">Add a new song</h4>
+                    <h4 className="modal-title  song__modal-title" id="exampleModalLabel">{((songActive.title!=="")?"Edit song":"Add a new song")}</h4>
                     <button type="button" className="btn btn-outline-secondary" data-dismiss="modal" aria-label="Close" onClick={handleCloseModal}>
                     X
                     </button>
@@ -84,7 +131,7 @@ const ModalSong = () => {
                         <SvgIcon className="modal__icon" component={AddPhotoAlternateIcon} fontSize='large'/> 
                       </Tooltip>
                     </label>
-                    <UploadPreviewImage/>
+                    <UploadPreviewImage imageFile={songActive.image}/>
                     
                   </div>
                   <button type="submit" className="navbar__buttons-item modal__button-save px-3"  onClick={handleSubmitSong}>Save song</button> 

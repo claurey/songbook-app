@@ -8,7 +8,8 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
 import AutoStoriesIcon from '@mui/icons-material/AutoStories';
 import { useDispatch } from 'react-redux';
-import { startDeletingSong } from '../../../actions/songs';
+import { setActiveSong, startDeletingSong } from '../../../actions/songs';
+import { openModal } from '../../../actions/ui';
 
 
 const SongCard = ({song}) => {
@@ -29,6 +30,13 @@ const SongCard = ({song}) => {
           });  
     }
 
+
+
+    const handleEditSong=() => {
+         dispatch(setActiveSong(song));
+         dispatch(openModal());
+    }
+
     return (
     <div className="col px-5">
         <div className="card">
@@ -38,13 +46,13 @@ const SongCard = ({song}) => {
             <div className="card-body songcard__body">
                 <Link to={`/song/${_id} `} className="card-title songcard__title h5">{title}</Link>
                 <h6 className="text-muted">{singer}</h6>
-                <FavoriteButton favorite={favorite} idSong={_id}/>
+                <FavoriteButton favorite={favorite} idSong={_id} song={song} />
             </div>
             <div className="card-footer songcard__footer d-flex justify-content-between">
                 <Tooltip title="Delete" placement="top" onClick={handleDeleteSong}>
                     <SvgIcon className="modal__icon" component={DeleteIcon} fontSize='medium'/> 
                 </Tooltip>
-                <Tooltip title="Edit" placement="top">
+                <Tooltip title="Edit" placement="top" onClick={handleEditSong}>
                     <SvgIcon className="modal__icon" component={EditIcon} fontSize='medium'/> 
                 </Tooltip>
                 <Link to={`/song/${_id} `} > <Tooltip title="Read" placement="top">
@@ -52,7 +60,7 @@ const SongCard = ({song}) => {
                 </Tooltip></Link>
             </div>
         </div>
-
+ 
     </div>
       );
 }

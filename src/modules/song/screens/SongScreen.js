@@ -5,13 +5,17 @@ import { useSelector } from 'react-redux';
 import ReturnButton from '../../ui/ReturnButton';
 import SongEntry from '../components/SongEntry';
 
+
 const SongScreen = () => {
+
+ 
 
   const {songId}=useParams();
 
   const{songsList}=useSelector((state) => {
     return state.songs
   });
+
 
   const song=songsList.find(song=>song._id===songId);
 

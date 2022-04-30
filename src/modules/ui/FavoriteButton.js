@@ -4,17 +4,17 @@ import { useDispatch } from 'react-redux';
 import SvgIcon from '@mui/material/SvgIcon';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
-import { setFavorite } from '../../actions/songs';
+import { startUpdatingFavoriteSong } from '../../actions/songs';
 
 
 
-const FavoriteButton = ({favorite, idSong}) => {
+const FavoriteButton = ({favorite, idSong, song}) => {
 
   
   const dispatch=useDispatch();
 
-  const handleFavoriteButton=() => {
-    dispatch(setFavorite(!favorite,idSong));
+  const handleFavoriteButton=() => { 
+    dispatch(startUpdatingFavoriteSong(song,idSong,favorite));
     
   }
 

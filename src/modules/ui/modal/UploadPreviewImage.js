@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 
 import { setPreviewImage } from '../../../actions/ui';
 
-const UploadPreviewImage = () => {
+const UploadPreviewImage = ({imageFile=""}) => {
     const dispatch=useDispatch();
     const imageRef = useRef();
     //Show preview and save state only in Redux
@@ -27,7 +27,7 @@ const UploadPreviewImage = () => {
                           onChange={handleUploadImage} />
                     <div className='modal__image-preview'>
                         <img 
-                        src='' 
+                        src={imageFile} 
                         ref={imageRef}
                         width="60px" alt="" />
                     </div>

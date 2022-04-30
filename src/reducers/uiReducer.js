@@ -13,7 +13,8 @@ const uiReducer = (state=initialState,action) => {
           return {...state, modalOpen:false}
       case types.uiSetPreviewImage:
           return {...state, previewImageFile:action.payload}
-   
+      case types.uiClearPreviewImage:
+            return {...state, previewImageFile:""}
       default:
           return state;
   }

@@ -15,17 +15,18 @@ const InputSearch = () => {
 
   const {q=''}=queryString.parse(location.search);
 
-  const [formValues, handleChangeForm]=useForm({songSearch:q});
+  const [formValues, handleChangeForm,reset]=useForm({songSearch:q});
 
   const handleSubmitSearch=(e) => {
     e.preventDefault();
-    navigate(`/search?q=${formValues.songSearch}`)
+    navigate(`/search?q=${formValues.songSearch}`);
+    reset();
   }
   
 
   return (
     <form className="d-flex navbar__container-form" onSubmit={handleSubmitSearch}>
-                      <input  type="text" placeholder="Search" name='songSearch' value={formValues.songSearch} onChange={handleChangeForm}/>
+                      <input  type="text" placeholder="Search" autoComplete='off' name='songSearch' value={formValues.songSearch} onChange={handleChangeForm}/>
                       <button className="navbar__search-button" type="submit">
                         <SvgIcon component={SearchIcon}/>
                       </button>

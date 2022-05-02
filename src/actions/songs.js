@@ -43,6 +43,26 @@ const setFavorite=(favorite,id) => {
 export const startCreatingSong=(song, reset) => {
   return async(dispatch,getState) => {
 
+    //
+    Swal.fire({
+      title: 'Uploading',
+      text:'Please wait...',
+      allowOutsideClick: false,
+      showConfirmButton:false,
+      customClass: {
+        container: 'my-swal'
+      },
+      willOpen:() => {
+        Swal.showLoading();
+      },
+      willClose:() => {
+        Swal.fire('Song saved!', '', 'success');
+      }
+      
+    });
+
+//
+
     const {ui:{previewImageFile}}=getState();
   
     //Create new song to save on DB
@@ -79,12 +99,15 @@ export const startCreatingSong=(song, reset) => {
         
       });
     }
+
     dispatch(addNewSong(data.song)); 
     dispatch(closeModal());
     reset();
-    Swal.fire('Song saved!', '', 'success');
     dispatch(clearPreviewImage());
     
+     //
+     Swal.close(); 
+     //
   }
 }
 
@@ -116,7 +139,25 @@ export const startDeletingSong =(idSong) => {
 
 export const startUpdatingSong=(songActive, song, reset) => {
   return async(dispatch,getState) => {
-    
+    //
+    Swal.fire({
+      title: 'Uploading',
+      text:'Please wait...',
+      allowOutsideClick: false,
+      showConfirmButton:false,
+      customClass: {
+        container: 'my-swal'
+      },
+      willOpen:() => {
+        Swal.showLoading();
+      },
+      willClose:() => {
+        Swal.fire('Song updated!', '', 'success');
+      }
+      
+    });
+
+//
     const {ui:{previewImageFile}}=getState();
 
     const updatedSong={
@@ -143,18 +184,19 @@ export const startUpdatingSong=(songActive, song, reset) => {
         text:"It couldn't save the song. The song must have a title, singer and lyrics. Please,try again!",
         icon:'error',
         customClass: {
-          container: 'my-swal'
+          container: 'my-swal'  
         }
       });
     }
     dispatch(updateSong(data.song)); 
-    setTimeout(() => {
-      console.log("h")
-    }, 5000);
     dispatch(closeModal());
     reset();
-    Swal.fire('Song updated!', '', 'success');
+  
     dispatch(clearPreviewImage());
+    dispatch(clearActiveSong());
+    //
+    Swal.close(); 
+    //
   }
 }
 

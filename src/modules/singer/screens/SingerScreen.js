@@ -14,9 +14,12 @@ const SingerScreen = () => {
   const singerSongs=songsList.filter((song) => (song.singer===singerId));
 
   return (
+    <>
+    {/* <h2 className='text-center pt-4'>{singerId}</h2> */}
     <div className='song__entry-container animate__animated animate__fadeInRight'>
-      <SongCards songs={singerSongs}/> 
-    </div> 
+    <SongCards songs={singerSongs}/> 
+  </div> </>
+    
   )
 }
 

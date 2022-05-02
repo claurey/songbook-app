@@ -7,7 +7,7 @@ import { useDispatch } from 'react-redux';
 import { startLogout } from '../../actions/auth';
 import { clearSongs } from '../../actions/songs';
 import InputSearch from './InputSearch';
-import { openModal } from '../../actions/ui';
+import { clearPreviewImage, openModal } from '../../actions/ui';
 
 const Navbar = () => {
 
@@ -17,6 +17,8 @@ const Navbar = () => {
   const handleLogout=() => {
     dispatch(startLogout());
     dispatch(clearSongs());
+    dispatch(clearPreviewImage());
+
   }
   const handleClickAddSong=() => {
     dispatch(openModal());

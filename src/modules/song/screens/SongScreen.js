@@ -4,6 +4,8 @@ import { useSelector } from 'react-redux';
 
 import ReturnButton from '../../ui/ReturnButton';
 import SongEntry from '../components/SongEntry';
+import Stack from '@mui/material/Stack';
+import CircularProgress from '@mui/material/CircularProgress';
 
 
 const SongScreen = () => {
@@ -16,7 +18,16 @@ const SongScreen = () => {
     return state.songs
   });
 
+  ///
 
+  if(songsList.length<1){
+    return <Stack className="d-flex justify-content-center align-items-center p-5 m-5" sx={{ color: 'grey.500' }} spacing={2} direction="row">
+      <CircularProgress color="secondary" />
+      
+    </Stack>
+  }
+  
+///
   const song=songsList.find(song=>song._id===songId);
 
   return (

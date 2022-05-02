@@ -21,15 +21,15 @@ const RegisterScreen = () => {
                 <h1 className="h3  mb-3 fw-normal">Create Account</h1>
 
                 <div className="form-floating">
-                  <input  type="text" className="form-control" id="floatingInputName" placeholder="name" name="name" value={formValues.name} onChange={handleChangeForm}/>
+                  <input  type="text" autoComplete='off' className="form-control" id="floatingInputName" placeholder="name" name="name" value={formValues.name} onChange={handleChangeForm}/>
                   <label htmlFor="floatingInputName">Name:</label>
                 </div>
                 <div className="form-floating">
-                  <input type="email" className="form-control" id="floatingInput" placeholder="name@example.com" name="email" value={formValues.email} onChange={handleChangeForm}/>
+                  <input type="email" autoComplete='off' className="form-control" id="floatingInput" placeholder="name@example.com" name="email" value={formValues.email} onChange={handleChangeForm}/>
                   <label htmlFor="floatingInput">Email:</label>
                 </div>
                 <div className="form-floating">
-                  <input type="password" className="form-control" id="floatingPassword" placeholder="Password" name="password" value={formValues.password} onChange={handleChangeForm}/>
+                  <input type="password" autoComplete='off' className="form-control" id="floatingPassword" placeholder="Password" name="password" value={formValues.password} onChange={handleChangeForm}/>
                   <label htmlFor="floatingPassword">Password:</label>
                 </div>
 

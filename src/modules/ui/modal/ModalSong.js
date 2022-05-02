@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import Swal from 'sweetalert2';
+
 
 import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
@@ -59,35 +59,16 @@ const ModalSong = () => {
 
     //Save values form 
     const handleSubmitSong=(e) => {
-      Swal.fire({
-        title: 'Uploading',
-        text:'Please wait...',
-        allowOutsideClick: false,
-        showConfirmButton:false,
-        customClass: {
-          container: 'my-swal'
-        },
-        willOpen:() => {
-          Swal.showLoading();
-        }
-        
-      });
 
       if(songActive.title!==""){
         dispatch(startUpdatingSong(songActive, formValues, reset));
-        Swal.close(); 
+
       }else{
       dispatch(startCreatingSong(formValues, reset));
-      Swal.close(); 
+   
       }
        
     }
-
-
-    
-    
-
-
 
 
   return (
@@ -114,13 +95,13 @@ const ModalSong = () => {
                     <form>
                     <div className="form-group">
                         <label htmlFor="song-title" className="col-form-label">Title:</label>
-                        <input type="text" className="form-control" id="song-title" name="title" value={formValues.title} onChange={handleChangeForm}/>
-                        <label htmlFor="song-singer" className="col-form-label">Singer:</label>
-                        <input type="text" className="form-control" id="song-singer" name="singer" value={formValues.singer} onChange={handleChangeForm}/>
+                        <input type="text" className="form-control" id="song-title" autoComplete='off' name="title" value={formValues.title} onChange={handleChangeForm}/>
+                        <label htmlFor="song-singer" className="col-form-label" >Singer:</label>
+                        <input type="text" className="form-control" id="song-singer" autoComplete='off' name="singer" value={formValues.singer} onChange={handleChangeForm}/>
                     </div>
                     <div className="form-group">
                         <label htmlFor="message-text" className="col-form-label">Lyrics:</label>
-                        <textarea rows="6"  className="form-control" id="message-text" name="lyrics" value={formValues.lyrics} onChange={handleChangeForm}></textarea>
+                        <textarea rows="6"  className="form-control" id="message-text" autoComplete='off' name="lyrics" value={formValues.lyrics} onChange={handleChangeForm}></textarea>
                     </div>
                     </form>
                 </div>

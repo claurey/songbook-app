@@ -34,11 +34,11 @@ const SongCard = ({song}) => {
 
     const handleEditSong=() => {
          dispatch(setActiveSong(song));
-         dispatch(openModal());
+         dispatch(openModal()); 
     }
 
     return (
-    <div className="col px-5">
+    <div className="col songcards__container">
         <div className="card">
             <div className="songcard__image">
              <img src={image} className="card-img-top" alt={image}/>

@@ -4,14 +4,13 @@ import {useDispatch} from 'react-redux';
 import {  Link  } from 'react-router-dom';
 
 import {startLogin} from '../../../actions/auth'
-import { startGettingSongs } from '../../../actions/songs';
 import useForm from "../../../hooks/useForm";
 
 const LoginScreen = () => {
 
   const dispatch=useDispatch();
 
-  const [formValues, handleFormChange]=useForm({email:'',password:''});
+  const [formValues, handleFormChange]=useForm({email:'claudia@gmail.com',password:'3240541'});
  
 
   const handleSubmit=(e) => {
@@ -29,11 +28,11 @@ const LoginScreen = () => {
                 <h1 className=" h3 mb-3 fw-normal">Song Book</h1>
 
                 <div className="form-floating">
-                  <input type="email" className="form-control" id="floatingInput" placeholder="name@example.com" name="email" value={formValues.email} onChange={handleFormChange}/>
+                  <input type="email" className="form-control" autoComplete='off' id="floatingInput" placeholder="name@example.com" name="email" value={formValues.email} onChange={handleFormChange}/>
                   <label htmlFor="floatingInput">Email:</label>
                 </div>
                 <div className="form-floating">
-                  <input type="password" className="form-control" id="floatingPassword" placeholder="Password" name="password" value={formValues.password} onChange={handleFormChange}/>
+                  <input type="password" className="form-control" autoComplete='off' id="floatingPassword" placeholder="Password" name="password" value={formValues.password} onChange={handleFormChange}/>
                   <label htmlFor="floatingPassword">Password:</label>
                 </div>
 

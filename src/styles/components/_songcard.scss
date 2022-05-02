@@ -1,7 +1,13 @@
 .songcard__image{
   height: 250px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
 
-  
+  img{
+    min-height: 100%;
+  }
 }
 
 .songcard__body{
@@ -17,5 +23,21 @@
   text-decoration: none;
   &:hover{
     color: $dark-violet;
+  }
+}
+
+
+.songcards__container{
+  padding-left: 2.5rem;
+  padding-right: 2.5rem;
+  // @media screen and (max-width: 425px) {
+  //   padding-left: 0.5rem;
+  //   padding-right: 0.5rem;
+    
+  // }
+  @media screen and (max-width: 1440px) {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    
   }
 }

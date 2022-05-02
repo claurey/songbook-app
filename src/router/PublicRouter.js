@@ -3,11 +3,11 @@ import { Navigate } from 'react-router-dom';
 
 const PublicRouter = ({children, userLogged}) => {
 
-  const lastPath = localStorage.getItem('lastPath') || '/';
+  // const lastPath = localStorage.getItem('lastPath') || '/';
 
   return (
     
-    userLogged?<Navigate to={lastPath}/>:children
+    userLogged?<Navigate to='/'/>:children
 
   )
 }

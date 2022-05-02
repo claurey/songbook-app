@@ -1,6 +1,6 @@
 
 const upLoadingImage = async (fileImage) => {
-        const cloudUrl='http://api.cloudinary.com/v1_1/dzrsng18g/upload';
+        const cloudUrl='https://api.cloudinary.com/v1_1/dzrsng18g/upload';
 
         const base64Response = await fetch(fileImage);
         const blobFile = await base64Response.blob();

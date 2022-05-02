@@ -20,7 +20,7 @@ This is a Song Book App using MERN stack.
 ### Links
 
 - [Solution URL](https://github.com/claurey/songbook-app)
-- [Live Site URL](https://claurey.github.io/stats-preview-card-component/)
+- [Live Site URL](https://songbook-mern.herokuapp.com/search?q=pr)
 
 ## My process
 
